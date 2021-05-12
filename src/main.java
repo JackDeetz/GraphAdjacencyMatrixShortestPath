@@ -1,21 +1,11 @@
 
 public class main {
-    //static HashSet<String> combinations = new HashSet<>() ;
     public static void main(String[] args)
     {
-        int array[][] = new int[11][11] ;
 
-        for (int i = 1 ; i <= 10 ; i++)
-        {
-            for (int j = 1 ; j <= 10 ; j++)
-            {
-                array[i][j] = 0 ;
-            }
-        }
+        Graph<Integer> g = new Graph<Integer>() ;   //data structure
 
-        Graph<Integer> g = new Graph<Integer>() ;
-        array[0][0] = 0 ;
-
+        //add all the 'edge's (pathways between vertexes)
         g.addEdge(1,2, 8, true );
         g.addEdge(1,3, 13,true );
         g.addEdge(1,6, 14, true );
@@ -53,11 +43,13 @@ public class main {
         g.addEdge(10,8, 8, true );
         g.addEdge(10,9, 12, true );
 
+        //print some statistics
         g.getEdgesCount(true);
         g.getVertexCount();
 
-        g.calculatePaths();
+        g.calculatePaths(); //prints all viable paths touching each node only once
 
+        //print the now calculated data
         System.out.println("The Shortest path:");
         System.out.println(g.ShortestPathData);
         System.out.println(g.ShortestPath + " total distance");
@@ -65,6 +57,17 @@ public class main {
 
 
 
+//static HashSet<String> combinations = new HashSet<>() ;
+//        int array[][] = new int[11][11] ;
+//
+//        for (int i = 1 ; i <= 10 ; i++)         //set all elements to 0 for (not here)
+//        {
+//            for (int j = 1 ; j <= 10 ; j++)
+//            {
+//                array[i][j] = 0 ;
+//            }
+//        }
+//        array[0][0] = 0 ;
 
 //        array[1][2] = 8 ;
 //        array[1][3] = 13 ;
